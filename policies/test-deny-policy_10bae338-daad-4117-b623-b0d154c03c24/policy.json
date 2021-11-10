@@ -1,0 +1,92 @@
+{
+ "properties": {
+  "displayName": "test-deny-policy",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "createdBy": "5ea0c199-6f0a-4dc3-9e86-be21e8c5d3eb",
+   "createdOn": "2021-09-01T07:02:11.6183358Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "exists": "true",
+      "field": "tags['CostCentre']"
+     },
+     {
+      "not": {
+       "anyOf": [
+        {
+         "field": "tags['CostCentre']",
+         "match": "###"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "match": "####"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "match": "H.####"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "match": "H.####.##.##"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "match": "S####"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "matchInsensitively": "WOW Shared"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "matchInsensitively": "WWNZ Shared"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "matchInsensitively": "CORP Shared"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "matchInsensitively": "TWQ Shared"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "matchInsensitively": "MGMT Shared"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "matchInsensitively": "SAP Shared"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "matchInsensitively": "WPAY Shared"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "matchInsensitively": "BIGW Shared"
+        },
+        {
+         "field": "tags['CostCentre']",
+         "matchInsensitively": "Liquor Shared"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/subscriptions/7511984e-a192-4763-8858-fd0c5c77bca2/providers/Microsoft.Authorization/policyDefinitions/10bae338-daad-4117-b623-b0d154c03c24",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "10bae338-daad-4117-b623-b0d154c03c24"
+}
